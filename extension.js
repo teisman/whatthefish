@@ -1,29 +1,20 @@
-function generateRandomSeed() {
-  let array = new Uint32Array(8); // Create an array of 8 elements, each 32 bits, for a total of 256 bits
-  window.crypto.getRandomValues(array); // Fill the array with random values
-  return Array.from(array).map(item => item.toString()).join('');
+function getRandomRgbColor() {
+    // Generate three random numbers between 0 and 255
+    const r = Math.floor(Math.random() * 256); // Red
+    const g = Math.floor(Math.random() * 256); // Green
+    const b = Math.floor(Math.random() * 256); // Blue
+    
+    // Construct an RGB color string
+    const rgbColor = `rgb(${r},${g},${b})`;
+    
+    return rgbColor;
 }
 
-async function getHashArray(str) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(str);
-  
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(hashBuffer));
-}
+function generateCSS() {
+  const colorPrimary = getRandomRgbColor();
+  const colorSecondary = getRandomRgbColor();
+  const gradientAngle = Math.floor(Math.random() * 180);
 
-async function generateHexColor(str) {
-  const hashArray = await getHashArray(str);
-  const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
-  return `#${hashHex.substring(0, 6)}`;
-}
-
-async function generateCSS(trusted) {
-  const seed = generateRandomSeed();
-  const colorPrimary = await generateHexColor(`${trusted}.${seed}.primary`);
-  const colorSecondary = await generateHexColor(`${trusted}.${seed}.secondary`);
-
-  const gradientAngle = seed % 180;
   return `
   input[type="password"] {
     background-image: repeating-linear-gradient(
@@ -44,7 +35,7 @@ async function getCSSForDomain(trusted) {
     return res[cssKey];
   }
 
-  const newCSS = await generateCSS(trusted);
+  const newCSS = generateCSS();
   await browser.storage.local.set({[cssKey]: newCSS});
   return newCSS;
 }
@@ -69,7 +60,6 @@ async function main() {
   const fqdn = getFQDN();
   const trusted = await isTrustedDomain(fqdn);
   const css = await getCSSForDomain(trusted);
-  console.log(css);
   applyStyles(css);
 }
 
