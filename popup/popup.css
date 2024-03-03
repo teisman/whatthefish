@@ -1,0 +1,52 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#mainContent {
+    text-align: center;
+    padding: 20px;
+}
+
+#currentState {
+    display: block; /* Ensure it takes its own line */
+    margin-bottom: 10px; /* Spacing between text and button */
+}
+
+button {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+button:hover {
+    background-color: #e8e8e8;
+}
+
+#footerContent {
+    text-align: center;
+    padding: 10px;
+}
+
+#settings {
+    font-size: 12px; /* Smaller font for less importance */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

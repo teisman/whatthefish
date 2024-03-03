@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "whatthefish",
+  "version": "1.0.1",
+  "description": "Recognizable password fields for trusted and untrusted domains in a fight against phishing.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["extension.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/whatthefish-48.png"
+    },
+    "default_title": "whatthefish",
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "48": "icons/whatthefish-48.png"
+  }
+}
+

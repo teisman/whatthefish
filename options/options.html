@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>whatthefish settings</title>
+  <link rel="stylesheet" type="text/css" href="options.css">
+</head>
+<body>
+  <form id="trustedStylesForm">
+    <label for="trustedStyles">Trusted Styles</label><br>
+    <textarea id="trustedStyles" rows="10"></textarea><br>
+    <button type="button" id="updateTrustedStyles">Update Trusted Styles</button>
+  </form>
+
+  <form id="untrustedStylesForm">
+    <label for="untrustedStyles">Untrusted Styles</label><br>
+    <textarea id="untrustedStyles" rows="10"></textarea><br>
+    <button type="button" id="updateUntrustedStyles">Update Untrusted Styles</button>
+  </form>
+
+  <form id="importDomainsForm">
+    <label for="trustedDomains">Import Trusted Domains</label><br>
+    <textarea id="trustedDomains" rows="4" placeholder="Enter domains, one per line."></textarea><br>
+    <button type="button" id="importTrustedDomains">Import Trusted Domains</button>
+  </form>
+
+  <script src="options.js"></script>
+</body>
+</html>
