@@ -5,11 +5,6 @@ module.exports = {
   artifactsDir: "./web-ext-artifacts",
   // Patterns of files to ignore
   ignoreFiles: [
-    "README.md",
-    "*.xpi",
-    "*.zip",
-    ".git",
-    "node_modules",
   ],
 };
 

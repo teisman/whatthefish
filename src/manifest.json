@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "whatthefish",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Recognizable password fields for trusted and untrusted domains in a fight against phishing.",
   "permissions": [
     "activeTab",
